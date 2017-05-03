@@ -1,0 +1,1345 @@
+         
+	 <!DOCTYPE html>
+		<html>
+
+	  <head>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet" />
+
+
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+
+	   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.0.2/css/hover-min.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/js/bootstrap-switch.min.js"></script>
+
+
+	
+
+
+	  </head>
+
+
+<script type="text/javascript"></script>
+
+	<script type="text/javascript">
+		var value;
+	   	function sendVal() {
+		  	$.get('/arduino/led/' + value, function(){
+		  		}
+		  	);
+	  	}
+	  	function updateVal(val) {
+      		value = val;
+      		$("#val").text(value);
+      		sendVal();
+    	}
+	</script>
+
+
+<style>
+  .modes {
+     border: solid;
+     border-radius: 40px;
+     border: 5px, 5px, 5px, 5px;
+     width: 90%;
+     margin-left: 5%;
+     margin-top: 8px;
+  }
+   
+  .party-mode {
+     background-color: #000000;
+     box-shadow: #33CC33;
+     color: #000000;
+     box-shadow: 5px 5px 5px 5px #FF0000;
+  }
+   
+  .party-mode:hover {
+     background: linear-gradient(to right, #FF00FF, #3366FF);
+     color: #FFFFFF;
+     border-color: #FFFFFF;
+     box-shadow: 5px 5px 5px 5px #FF0000;
+  }
+   
+.grow {
+  -webkit-transition:all 0.5s ease-out;
+  -moz-transition:all 0.5s ease-out;
+  -ms-transition:all 0.5s ease-out;
+  -o-transition:all 0.5s ease-out;
+  transition:all 0.5s ease-out;
+}
+
+.grow:hover {
+  -webkit-transform:scale(1.2);
+  -moz-transform:scale(1.2);
+  -ms-transform:scale(1.2);
+  -o-transform:scale(1.2);
+  transform:scale(1.2);
+}
+
+@-webkit-keyframes hvr-buzz { 
+   50% { 
+     -webkit-transform: translateX(3px) rotate(3deg); 
+     transform: translateX(3px) rotate(3deg); 
+   } 
+ 
+
+   100% { 
+     -webkit-transform: translateX(-3px) rotate(-3deg); 
+     transform: translateX(-3px) rotate(-3deg); 
+   } 
+ } 
+ 
+ @keyframes hvr-buzz { 
+   50% { 
+     -webkit-transform: translateX(3px) rotate(3deg); 
+     transform: translateX(3px) rotate(3deg); 
+   } 
+ 
+ 
+   100% { 
+     -webkit-transform: translateX(-3px) rotate(-3deg); 
+    transform: translateX(-3px) rotate(-3deg); 
+   } 
+ } 
+ 
+ 
+ .hvr-buzz { 
+   display: inline-block; 
+   vertical-align: middle; 
+   -webkit-transform: translateZ(0); 
+   transform: translateZ(0); 
+   box-shadow: 0 0 1px rgba(0, 0, 0, 0); 
+   -webkit-backface-visibility: hidden; 
+   backface-visibility: hidden; 
+   -moz-osx-font-smoothing: grayscale; 
+ } 
+ .hvr-buzz:hover, .hvr-buzz:focus, .hvr-buzz:active { 
+   -webkit-animation-name: hvr-buzz; 
+   animation-name: hvr-buzz; 
+   -webkit-animation-duration: 0.25s; 
+   animation-duration: 0.15s; 
+   -webkit-animation-timing-function: linear; 
+   animation-timing-function: linear; 
+   -webkit-animation-iteration-count: infinite; 
+   animation-iteration-count: infinite; 
+ } 
+
+
+
+
+   .away-mode {
+      background-color: #FF9900;
+   }
+
+   .eco-mode {
+      background-color: #55CC55;      
+   }
+   
+   .eco-mode: focus {
+      color: #FFFFFF;
+   }
+   
+	body {
+	  position: relative;
+	}
+
+	.dashboard-bg {
+	  background-color: #CCD6DD;
+	}
+
+	.room-btn {
+	 background-color: #C68C53;
+	 color: #000000;
+	 border-radius: 20px;
+	 padding-bottom: 20px;
+	 margin-bottom: 3px;
+	}
+
+	.bright-btn {
+	  background-color: #FFFF4D;
+	  font-color: #000000;
+	  border-radius: 20px;
+	  padding-bottom: 29px;
+	  margin-bottom: 3px;
+	}
+
+	.heart-btn {
+	  background-color: #55FF55;
+	  color: #000000;
+	  border-radius: 20px;
+	  padding-bottom: 30px;
+	  margin-bottom: 3px;
+	}
+
+	.therm-btn {
+	  background-color: #FF4D4D;
+	  color: #000000;
+	  border-radius: 20px;
+	  padding-bottom: 55px;
+	  margin-bottom: 3px;
+	}
+
+	.lock-btn {
+	  background-color: #669999;
+	  color: #000000;
+	  border-radius: 20px;
+	  padding-bottom: 37px;
+	  margin-bottom: 3px;
+	}
+
+	.people-btn {
+	  background-color: #FFB3FF;
+	  border-radius: 20px;
+	  color: #000000;
+	  padding-bottom: 8px;
+	  margin-bottom: 3px;
+	}
+
+	.control-btn {
+	  background-color: #B3B3CC;
+	  border-radius: 20px;
+	}
+
+	.bg-pink {
+	  background-color: #FF8080;
+	}
+	.bg-silver {
+	  background-color: #8c8c8c;
+	}
+
+	.tempBox {
+	 border-top: solid;
+	 border-top: 5px;
+	 border-bottom: 5px;
+	 border-bottom: solid;
+	 border-color: #F45050;
+	}
+	.connex {
+	color: #0028FF;
+	}
+	.bg-grey {
+	  background-color: #FAFAFA;		 
+	}
+	.bg-yellow {
+	  background-color: #FFFF66;
+	}
+	.bg-blue {
+	  background-color: #00F0FF;
+	}
+	.bg-purple{
+	  background-color: #CC00CC;
+	}
+	.bg-red {
+	  background-color: #FF4D4D;
+	}
+	.border-big {
+	  border-top: solid;
+	  border-bottom: solid;
+	  border-width: 5px;
+	  padding-top: 50px;
+	  padding-bottom: 120px;
+	  width: 100%;
+	  padding-left: 10px;
+    }
+     
+	.some-pad {
+	  padding-bottom: 35px;
+	  padding-top: 50px;
+	  border-bottom: solid;
+	  border-width: 5px;
+   
+	}
+	.btn:hover {
+	  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	  background-color: #47D147;
+	}
+
+	.btn:target {
+	  background-color: #0000FF;
+	}
+	.navbar {
+	position: fixed;
+	width : 100%;
+	z-index:5;
+	}
+	.left {
+	 width:	50%;
+	 float: left;
+	}
+	.right {
+	 width: 50%;
+	 float: right;
+	 border-color: #F8F8F8;
+	}
+	.fa-5x {
+	 font-size: 160px;
+	}
+
+	.slide {
+	 width: 30%;
+	 margin-left: 35%;
+	}
+
+	.flip-switch {
+	  height: 40px;
+	}
+	.btn-control {
+	   -webkit-appearance: default-button;
+	  padding-bottom: 150px;
+	  padding-top: 150px;
+	  font-size: 35px;
+	}
+	.btn-margin {
+	  margin-right: 40px;
+	}
+
+	.top {
+	 width: 100%;
+	 margin-right: 0px;
+	 margin-left: 0px;
+	}
+
+	.bottom { 
+	 width: 100%;
+	 margin-right: 0px;
+	 margin-left: 0px;
+	}
+
+	.middle {
+	 width: 100%;
+	 margin-right: 0px;
+	 margin-left: 0px;
+	 padding-bottom: 23px;
+	 padding-top: 20px;
+	}
+
+	.select:hover {
+	 box-shadow: 5px 5px 5px 5px #729191;
+	}
+   
+   .connex-logo {
+      border-style: solid;
+      border-color: #4D94FF;
+      border-top-width: 6%;
+      border-bottom-width: 6%;
+      border-left-color: #FAFAFA;
+      border-right-color: #FAFAFA;
+   }
+   .modes1 {
+   	  text-align: center;
+   }
+ 
+ 	.tic {
+ 		margin: auto;
+ 		width: 5%;
+ 		display: inline;
+ 	}
+
+    .ticMidRow {
+    	width: 5%;
+ 		border-color: #000000;
+ 		border-top: 6%;
+ 		border-bottom: 6%;
+ 		border: solid;
+ 		border-left: 0px;
+ 		border-right: 0px;
+ 	}
+
+ 	.ticMidCol {
+ 		position: absolute;
+ 		left: 50%;
+ 		width: 5%;
+ 		border-top: 0px;
+ 		border-bottom: 0px;
+ 		border: solid;
+ 		border-left: 6% solid #000;
+ 		border-right: 6% solid #000;
+ 	}
+
+ 	.ticTopCent {
+ 		border-top: 0px;
+ 		border-bottom: 0px;
+ 	}
+
+ 	.ticBottomCent {
+ 		border-bottom: 0px;
+ 		border-top: 0px;
+ 	}
+
+ 	.ticRight {
+ 		position: absolute;
+ 		left: 45%;
+ 	}
+
+ 	.ticLeft {
+ 		position: absolute;
+ 		left: 55%;
+ 	}
+
+	</style>
+
+
+
+	<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+
+	 <nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#Home"><b>UniHome</b></a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar">
+	      <ul class="nav navbar-nav">
+		<li class="active"><a href="#Dashboard">Dashboard</a></li>
+		<li><a href="#Lights-tag">Lights</a></li>
+		<li><a href="#Temp-tag">Temperature</a></li>
+		<li><a href="#Secure-tag">Security</a></li>
+		<li><a href="#Health-tag">Health</a></li>
+
+	      </ul>
+
+	      <ul class="nav navbar-nav navbar-right">
+		<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+	User Details</a></li>
+		<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>
+	Logout</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+
+
+
+	  <div class = "jumbotron">
+	   <div class = "container-fluid bg-grey some-pad">
+	    <div class = "container">
+	<a name = "Home"></a>
+	 <center>      
+      <div class="container-fluid connex-logo">
+	      <img src="conneX.png" width="20%" height="10%">
+      </div>
+      
+      <br><br>
+
+<!----------------------- HomePage ------------------------- -->
+	<head>
+		<title>ConneX UniHome</title>
+	</head>
+	<center> 
+   <h1 style="padding-right:45%;"><span style="color:#5577FF">T</span>he</h1> 
+   <img src="uniHome.png" width="50%" height="10%">   
+   
+   <h1 style="padding-left:40%"><span style="color:#5577FF">P</span>roject</h1>
+	<!-- <h1>Founded by <b class="connex">C</b>onne<b class="connex">X</b></h1> -->
+	<br><br>
+	<i mg src="https://cdn4.iconfinder.com/data/icons/home3/102/Untitled-5-512.png" height="300" width="300">
+	</center>
+   	</div>
+	</div>
+
+
+<!-- ------------------------------ Dashboard ----------------------------- -->
+	<div class="jumbotron border-big dashboard-bg container-fluid" id="Dashboard">
+	<a name="Dashboard"></a>
+	<center><h1>DashBoard</h1></center>
+
+	<br><br>
+
+	<div class="row">
+
+	<center><div class="col-sm-4">
+
+	 <div class="top room-btn" id="Room">
+	  <span style="font-size:25px">Room <br>
+	  <img src="https://cdn4.iconfinder.com/data/icons/eldorado-navigation/40/exit_2-512.png" height="100" width="100">
+	  <br>
+	  <br>
+	  <select>
+	  <option> Room 1 </option>
+	<!--  <option> Bedroom 1 </option>
+	  <option> Bedroom 2  </option>
+	  <option> Kitchen </option> -->
+	  </select>
+	  </span>
+	  <br><br><br><br>
+	 </div>
+
+	
+   	 <div class="bottom people-btn" id="People">
+	   <span style="font-size:25px">Occupants <br></span>
+
+	  <img src="https://cdn2.iconfinder.com/data/icons/web-part-2/32/people-2-512.png" height="100" width="100">
+	  <br>
+	  <br><b><span id="input-occupant" style="font-size:25px; color:#000000;"></b></span> <br><br><br><br>
+	 </div>
+	</div>
+   
+
+
+	<div class="col-sm-4">
+
+	 <div class="top select therm-btn" id="Therm">
+	 <a href="#Temp-tag">
+	 <span style="font-size:25px; color:#000000;">Temperature <br></span>
+	    <img src="https://cdn4.iconfinder.com/data/icons/medicons-2/512/thermometer-512.png" height="100" width="100">
+	    <br>
+
+	  <br><b><span id="input-therm" style="font-size:25px; color:#000000;"></span><span style="font-size:25px; color:#000000;"></span></b>
+
+	  <br><br><br>
+	 </a>
+	 </div>
+
+	 <div class="bottom select heart-btn" id="Heart">
+	  <a href="#Health-tag">
+	  <span style="font-size:25px; color:#000000;">Heartrate </span><br>
+
+	   <img src="https://cdn2.iconfinder.com/data/icons/science-solid-icons-vol-1/48/028-512.png" height="100" width="100">
+	<br>
+	  <br><b><span id="input-heart" style="font-size:25px; color:#000000;"></span><span style="font-size:25px; color:#000000;"></b></span> 
+	  <br><br><br>
+	  </a>
+	 </div>
+	 </div>
+
+
+	<div class="col-sm-4">
+	 <div class="top select lock-btn" id="Lock">
+	 <a href="#Secure-tag">
+	  <span style="font-size:25px; color:#000000;">Security <br></span>
+	  <img src="http://www.newdesignfile.com/postpic/2011/11/information-security-icon_208031.png" height="100" width="100">
+	  <br><br>
+
+	 <b><span id="input-lock" style="font-size:25px; color:#000000;"></b></span>
+	  <br><br><br><br>
+	</a>
+	 </div>
+
+    <div class ="bottom select bright-btn" id="Bright">
+	 <a href="#Lights-tag">
+	  <span style="font-size:25px; color:#000000;">Brightness <br></span>
+	    <img src="https://cdn3.iconfinder.com/data/icons/stroke/53/Brightness-512.png" height="100" width="100">
+	    <br>
+
+	  <br><span id="input-bright" style="font-size:25px; color:#000000;"><b></span><span style="font-size:25px; color:#000000;"></span></b> <br><br><br>
+	 </a>
+	 </div>
+
+	 </div>
+<!-- ----------------------- modes ------------------- -->
+   <center>
+	<a name="Bottom"></a>
+	</div>
+   
+   <div class="mod">
+      
+
+   <div class="eco-mode select modes" onclick="eco()">
+      <center>     
+   <b style="font-size:25px" id="eco">Eco Mode</b>
+    </center>
+    </div>
+   
+
+   <div class="away-mode select modes" onclick="away()">
+      <center>
+   <b style="font-size:25px" id="away">Away Mode</b>
+      </center>
+   </div>
+   
+   <div class="party-mode modes hvr-buzz grow" onclick="party()">
+      <center>
+   <b style="font-size:25px" id="party">Party Mode!</b>
+      </center>
+   </div>
+ 
+   </div>
+	</center>
+   </div>
+
+<script>
+
+function away() {
+   
+   document.getElementById('eco').innerHTML = "Eco Mode";
+   document.getElementById('party').innerHTML = "Party Mode!";
+   document.getElementById('eco').style.color = '#393939'; 
+      
+   if(document.getElementById('away').innerHTML == "Away Mode") {
+       document.getElementById('Dashboard').style.background = '#FF9900';
+       document.getElementById('away').innerHTML = "Activated";
+       document.getElementById('away').style.color = '#FFFFFF';
+       sendMode("away");
+   } else {
+       document.getElementById('Dashboard').style.background = '#CCD6DD';
+       document.getElementById('away').innerHTML = "Away Mode";
+       document.getElementById('away').style.color = '#393939';
+       sendMode("off");
+   }
+   
+}
+
+   
+function eco() {
+
+   document.getElementById('away').innerHTML = "Away Mode";
+   document.getElementById('party').innerHTML = "Party Mode!";
+   document.getElementById('away').style.color = '#393939';   
+ 
+   if(document.getElementById('eco').innerHTML == "Eco Mode") {
+       document.getElementById('Dashboard').style.background = '#55FF55';
+       document.getElementById('eco').innerHTML = "Activated";
+       document.getElementById('eco').style.color = '#FFFFFF';
+       sendMode("eco");
+   } else {
+       document.getElementById('Dashboard').style.background = '#CCD6DD';
+       document.getElementById('eco').innerHTML = "Eco Mode";
+       document.getElementById('eco').style.color = '#393939';
+       sendMode("off");
+   }
+   
+}   
+   
+function party() {
+
+   document.getElementById('away').innerHTML = "Away Mode";
+   document.getElementById('party').innerHTML == "Party Mode!"
+   document.getElementById('away').style.color = '#393939'; 
+
+   document.getElementById('eco').innerHTML = "Eco Mode";
+   document.getElementById('party').innerHTML == "Party Mode!"
+   document.getElementById('eco').style.color = '#393939'; 
+
+   if(document.getElementById('party').innerHTML == 'WOOHOO!') {
+      document.getElementById('Dashboard').style.background = '#CCD6DD';   
+      document.getElementById('party').innerHTML = "Party Mode!";
+      sendMode("off");
+   } else  {
+      document.getElementById('party').innerHTML = "WOOHOO!";      
+      document.getElementById('Dashboard').style.background = '#FF00FF';
+      sendMode("party");
+   }
+ 
+}   
+
+
+</script>
+
+
+<div class="container-fluid text-center border-big jumbotron" id="ticTac">
+
+	<div class="top">
+		<div class="tic ticLeft"> 
+			-
+		</div>
+		<div class="ticMidCol tic ticTopCent">
+			-
+		</div>
+		<div class="tic ticRight">
+			-
+		</div>
+	</div>
+	
+	<div class="middle">
+		<div class="ticMidRow tic ticLeft">
+			-
+		</div>
+		<div class="ticMidRow ticMidCol tic">
+			-
+		</div>
+		<div class="ticMidRow tic ticRight">
+			-
+		</div>
+	</div>
+
+	<div class="bottom">
+		<div class="tic ticLeft">
+			-
+		</div>
+		<div class="ticMidCol tic ticBottomCent">
+			-
+		</div>
+		<div class="tic ticRight">
+			-
+		</div>
+	</div>
+</div>
+
+<div class="1" id="Lights-tag">
+<a name="Lights"></a>
+
+</div>
+<!-- ------------------------------      Lighting     -------------------------------------------------- -->
+	<div class="container-fluid text-center bg-yellow border-big" id="Lights" style="display">
+
+	<div class="left" id="light-left" style="">
+	<i class="fa fa-lightbulb-o fa-5x" aria-hidden="true"></i>
+	   <br><br><br>
+
+	<form>
+	  Chosen Light Brightness:
+	  <span id="disp-pow">50</span>
+	<br>
+      
+      <div class="slide">
+      <input type="range" class="light-slide" id="light-slider" name="lighting-manual" min="0" max="255" value="127" onchange="showPow(this.value)"/>
+	   </div>
+      
+   <br>
+
+	</form>
+
+	<script type="text/javascript">
+
+	function showPow(power) {
+
+	 document.getElementById("disp-pow").innerHTML=Math.round((power/255)*100) + "%";
+         sendManualLightValue(power);
+       
+	}
+	</script>
+
+
+
+	<br>
+
+
+	</form>
+	</div>
+
+
+
+	<div class="right" id="light-right">
+
+	<i class="fa fa-sun-o fa-5x" aria-hidden="true"></i>
+
+	   <br><br><br>
+
+	<script type="text/javascript">
+
+	function showBright(bright) {
+
+	 document.getElementById("disp-bright").innerHTML=bright;
+
+	}
+	</script>
+
+	<form>
+	   Light Mode:
+	 <!-- <span id="disp-bright">50</span> -->
+	<br>
+	 <!-- <input type="range" class="slide" name="lighting-auto" min="0" max="100" value="50" onchange="showBright(this.value)"/> -->
+     <input type="checkbox" name="light-switch" id="light-switch" checked data-on-text="Manual" data-off-text="Automatic"
+	     data-on-color="warning" data-off-color="success" value="1" onchange="sendAutoLight()"/>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/js/bootstrap-switch.min.js"></script>
+	<script type="text/javascript">$("[name='light-switch']").bootstrapSwitch();</script>
+
+	<br>
+
+</form>
+
+
+<script>
+	function showBright(bright) {
+      if (!document.getElementById('light-switch').checked) {
+         sendAutoLightValue();
+      }
+	}
+	</script>
+
+
+	<br>
+
+
+	</form>
+
+
+	</div>
+
+	<script>
+   function sendAutoLight(power) {
+	   if(!document.getElementById("light-switch").checked) {
+        //sendLightMode("ON"); -Only if we choose to use modes
+        $('#light-left').hide('slow');
+        sendAutoLightValue();
+      } else {
+        //sendLightMode("OFF");
+        $('#light-left').show('slow');
+        document.getElementById('input-bright').innerHTML = power; 
+
+      }	   
+   }
+   
+	</script>
+</div>
+	
+	<div class="1" id="Temp-tag">
+	<a name="Temp"></a>
+	</div>
+
+<!-- ----------------------------------  Temperature -------------------------------------- -->
+
+	<div class="container-fluid text-center bg-red border-big" id="Temp" style="display:">
+	 <div class="right">
+	<img src="https://cdn2.iconfinder.com/data/icons/game-center-mixed-icons/512/temperature.png" alt="Smiley face" height="175" width="175">
+
+	<br><br><br>
+
+	<script type="text/javascript">
+
+	function showTemp(temp) {
+    if (temp >= 10 && temp <= 35) {  
+	      document.getElementById("disp").innerHTML = temp;
+         sendAirconAuto(temp);
+         
+    }     
+	}
+	</script>
+
+	<form>
+     Temperature Mode:
+     <br>
+          <input type="checkbox" name="temp-switch" id="temp-switch" checked data-on-text="Manual" data-off-text="Automatic"
+	     data-on-color="warning" data-off-color="success" value="1" onchange="sendAutoTemp()"/>
+<br><br>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/js/bootstrap-switch.min.js"></script>
+	<script type="text/javascript">$("[name='temp-switch']").bootstrapSwitch();</script>
+     
+     
+	  Chosen Temperature:
+	  <span id="disp"></span>&deg;C
+	<br>
+	  <input type="number" name="temp" id="temp-numb" min="10" max="35" value="25" onchange="showTemp(this.value)"/>
+	<br>
+	</form>
+
+	 <br>
+
+ 
+	</form>
+
+
+	</div>
+	 <div class="left" id="temp-left" style="">
+	 <i class="fa fa-fire fa-5x" aria-hidden="true" id="heat-icon" style="padding-left:-5%;"></i>
+ 	 <i class="fa fa-asterisk fa-5x" aria-hidden="true" id="fan-icon" style="display:none; padding-left:-5%;"></i>
+	<br><br>
+
+
+	<form><br>
+	<select style="position:absolute" name="mode" id="air-setting" onchange="changeIcon()">
+	  <option value="Heating">Heating</option>
+	  <option value="Cooling">Cooling</option>
+	</select>
+	<br><br><br>
+
+
+	  Chosen Power:
+	  <span id="fan-pow">50</span>
+	<br>
+		<div class="slide">
+	  <input type="range" class="temp-slide" name="fan" min="30" max="150" value="90" onchange="showFan(this.value)"/>
+		</div>
+	<br><br>
+	<span style="margin-left:0%">Set Time For Activation:</span> <br><br>
+	<input type="time" name="tempTime" id="temp-time" style="margin-left:0%">
+	<br><br>
+   </form>
+
+
+	<script type="text/javascript">
+
+	function showFan(fanSpeed) {
+   
+   var fanSpeed;
+	 document.getElementById("fan-pow").innerHTML = Math.round(100*(fanSpeed-30)/120) + "%";
+    
+	 var e = document.getElementById("air-setting");
+        var airconMode = e.options[e.selectedIndex].value;
+        sendAirconManual(airconMode, fanSpeed);
+        
+         changeIcon();
+   }
+   
+   function changeIcon() {
+   
+   	 var e = document.getElementById("air-setting");
+       var airconMode = e.options[e.selectedIndex].value;
+               
+        if (airconMode == "Cooling") {
+        
+	      $('#heat-icon').hide('slow');
+          $('#fan-icon').show('slow');
+          document.getElementById('Temp').style.background = '#00F0FF';
+          document.getElementById("Therm").style.background = '#00F0FF';
+          sendAirconAuto(temp);
+        } else {
+        
+          $('#heat-icon').show('slow');
+          $('#fan-icon').hide('slow');  
+          document.getElementById('Temp').style.background = '#FF4D4D';
+          document.getElementById("Therm").style.background = '#FF4D4D';      
+        }
+	}
+   
+	</script>
+
+
+
+	</div>
+	</div>
+
+
+
+	<script>
+   function sendAutoTemp() {
+	   if(!document.getElementById("temp-switch").checked) {
+  //      sendTempMode("ON");
+          $('#temp-left').hide('slow');
+          var temp = document.getElementById("temp-numb").value;
+          sendAirconAuto(temp);
+      } else {
+  //      sendTempMode("OFF");
+         $('#temp-left').show('slow');
+      }	
+       
+   }
+   
+	</script>
+
+	<div class="1" id="Secure-tag">
+	<a name="Security"></a>
+	</div>
+
+
+<!-- ----------------------------------------- Security --------------------------------------------- -->
+
+
+	<div class="container-fluid text-center bg-silver border-big" id="Security" style="display">
+	<div class="right">
+	<!-- <img src="https://cdn3.iconfinder.com/data/icons/photography/512/Icon_21-512.png" alt="Smiley face" height="150" width="150"> -->
+
+	<i class="fa fa-eye fa-5x" aria-hidden="true"></i>
+	<form>
+	<div class="make-switch switch-large flip-switch">
+	<br><br>
+	<b><p> Security Mode: </p></b>
+	Alarm Setting:
+	<select onchange="sendSecurity()" id="alarmMode">
+	<option value="Silent">Silent</option>
+	<option value="Sound">Sound</option>
+		     </select>
+<br><br>
+	<b>    <input type="checkbox" name="security-switch" id="security-switch" checked data-on-text="Deactivated" data-off-text="Activated"
+	     data-on-color="warning" data-off-color="success" value="1" onchange="sendSecurity()"/>
+       
+	</b><br><br>
+	</form>
+
+	<script>
+   function sendSecurity() {
+	   if(document.getElementById("security-switch").checked) {      
+        sendSecurityActivation("off");
+      } else {
+      	sendAMode();
+        //sendSecurityActivation("off");
+      }	
+       
+   }
+   
+	</script>
+
+
+	</div>
+
+
+	</div>
+	<div class="left">
+	<i class="fa fa-clock-o fa-5x" aria-hidden="true"></i>
+	<br><br><br>
+	<span>Set Time for Activation:</span>
+	<br> <br>
+
+	<form>
+
+	  Alarm Setting:
+	  <select>
+	  <option value="Silent">Silent</option>
+	  <option value="Sound">Sound </option>
+			</select>
+<br><br>
+	  <input type="time" name="securityTime" id="secure-time">
+	  <input id="hidden" type="hidden" value="0" name="securityTime">
+  
+      <script>
+      function sendAMode() {
+      	var e = document.getElementById("alarmMode");
+      	//alert("e = " + string(e));
+         var mode = e.options[e.selectedIndex].value;
+         //alert(mode);
+         sendSecurityMode(mode);
+      }
+      </script>
+	</form>
+
+	<br><br><br>
+
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/js/bootstrap-switch.min.js"></script>
+	<script type="text/javascript">$("[name='security-switch']").bootstrapSwitch();</script>
+	</div>
+	<div class="bg-silver">
+	<a name="#Health"></a>
+	</div>
+
+	</div>
+
+
+	<div class="1" id="Health-tag">
+	<a name="Health"></a>
+	</div>
+
+<!-- -------------------------------------- Health ------------------------------------------ -->
+
+	<a name = "Health"></a>
+	<div class="container-fluid text-center bg-pink border-big" id="Health" style="display:">
+	<i class="fa fa-heartbeat fa-5x" aria-hidden="true"></i>
+	   <br><br><br>
+	   Set Minimum Heartrate:
+	   <input type="number" name="heart-min" id="heart-min" min="0" max="120" value="0"/>
+	   <br><br>
+       Set Maximum Heartrate:
+	   <input type="number" name="heart-max" id="heart-max" min="60" max="210" value="100"/>
+
+
+	</div>
+	</div>
+
+	</body>
+	</html>
+
+
+
+<script src="js/promise.min.js"></script>
+<script src="js/fetch.js"></script>
+	<!-- ------------------Light ---------------- -->
+	<script type="text/javascript">
+
+
+
+	var button = document.getElementById('Bright');
+
+	button.onclick = function() {
+	    var div = document.getElementById('Lights');
+	    if (div.style.display !== 'none') {
+	<!--        div.style.display = 'none'; -->
+		   $("#Lights").hide("slow");
+	    }
+	    else {
+	<!--        div.style.display = 'block'; -->
+		    $( "#Lights" ).show( "slow" );
+	    }
+	};
+	</script>
+
+	<!-- ----------------- Temp -------------------- -->
+
+	<script type="text/javascript">
+
+
+	var button = document.getElementById('Therm');
+
+	button.onclick = function() {
+	    var div = document.getElementById('Temp');
+	    if (div.style.display !== 'none') {
+	<!--        div.style.display = 'none'; -->
+		   $("#Temp").hide("slow");
+	    }
+	    else {
+	<!--        div.style.display = 'block'; -->
+		    $( "#Temp" ).show( "slow" );
+	    }
+	};
+	</script>
+
+	<!-- --------------------- Security ------------ -->
+	<script type="text/javascript">
+
+
+	var button = document.getElementById('Lock');
+
+	button.onclick = function() {
+	    var div = document.getElementById('Security');
+	    if (div.style.display !== 'none') {
+	<!--        div.style.display = 'none'; -->
+		   $("#Security").hide("slow");
+	    }
+	    else {
+	<!--        div.style.display = 'block'; -->
+		    $( "#Security" ).show( "slow" );
+	    }
+	};
+	</script>
+
+	<!-- ----------- Health -------------------- -->
+
+	<script type="text/javascript">
+
+
+	var button = document.getElementById('Heart');
+
+	button.onclick = function() {
+	    var div = document.getElementById('Health');
+	    if (div.style.display !== 'none') {
+		   $("#Health").hide("slow");
+	    }
+	    else {
+           $( "#Health" ).show( "slow" );
+	    }
+	};
+	</script>
+
+<script type="text/javascript" src="zepto.min.js"></script>
+
+        <script type="text/javascript">
+                var value;
+                function sendVal() {
+                        $.get('/arduino/led/' + value, function(){
+                                }
+                        );
+                }
+                function updateVal(val) {
+                value = val;
+                $("#val").text(value);
+                sendVal();
+        }
+        </script>
+
+
+
+</html>
+
+<script type="text/javascript" src="zepto.min.js"></script> <!-- initialises zepto library -->
+
+ <script>
+      <!-- ------------ LIGHTING ---------------------------- -->
+/*
+     function sendManualLightValue(manualLightValue) {     
+      //bind the slider value to the URL
+      //alert("the url is /arduino/lighting/manual/" + manualLightValue);
+     $.get('/arduino/lighting/manual/' + manualLightValue, function(){       
+      }
+     );
+    }
+
+    function sendAutoLightValue() {     
+      //bind the slider value to the URL
+     $.get('/arduino/lighting/auto/', function(){       
+      }
+     );
+    }
+
+
+    // this is only if we implement modes
+    // lightMode is a STRING - make sure the input element returns the mode as a string when calling this function
+    function sendLightMode(lightMode) {
+     $.get('/arduino/lighting/mode/' + lightMode, function(){       
+       }
+      );
+    }
+
+
+    <!-- ------------ Temperature Control ------------------------- --> 
+
+    // call if aircon control is set to manual. pass in a string parameter equal to "Cooling" or "Heating", and then fan value
+    function sendAirconManual(airconMode, fanSpeed) {
+     if (airconMode == "Cooling") {
+      $.get('/arduino/airconditioning/cooling/' + fanSpeed, function(){       
+       }
+      );
+     } else if (airconMode == "Heating") {
+      $.get('/arduino/airconditioning/heating/' + fanSpeed, function(){       
+       }
+      );
+     }
+    }
+
+    // call if aircon mode is set to auto, pass in the temperature the temp sensor needs to look for
+    function sendAirconAuto(targetTemperature) {
+      $.get('/arduino/airconditioning/auto/' + targetTemperature, function(){
+       }
+      );
+    }
+    
+    
+    <!-- --------------- Security Control ------------------------ -->
+    
+    function sendSecurityMode(securityMode) {
+     if (securityMode == "Silent") {
+      $.get('/arduino/security/alarm/silent/', function(){       
+       }
+      );
+     } else {//if (securityMode == "Sound") {
+      $.get('/arduino/security/alarm/on/', function(){       
+       }
+      );
+     }
+    }
+
+    //
+    function sendSecurityActivation(mode) {
+      $.get('/arduino/security/alarm/' + mode, function(){
+       }
+      );
+    }
+    
+    function sendMode(mode) {
+      $.get('/arduino/mode/' + mode, function(){
+       }
+      );       
+       
+    function feedDog() {
+      $.get('/arduino/feed/', function(){
+       }
+      );       
+    }
+  */
+    
+    
+     </script>
+
+
+
+
+<script>
+
+
+(function() {
+		var url ="http://api.openweathermap.org/data/2.5/weather?q=Sydney.Australia";
+		var weatherAPIkey = "6bb02aab2358f22bba8bd3d563e8dde1";
+		var httpRequest;
+		makeRequest();
+		//send request
+		function makeRequest() {
+			httpRequest = new XMLHttpRequest();
+			httpRequest.onreadystatechange = responseMethod;
+			httpRequest.open('GET',url + '&appid=' + weatherAPIkey);
+			httpRequest.send();
+		}
+	 	//handle response
+	 	function responseMethod () {
+	 		if (httpRequest.readyState == 4) {
+	 			console.log(httpRequest.responseText);
+	 			if (httpRequest.status == 200) {
+	 				updateUISuccess(httpRequest.responseText);
+	 			} else {
+
+	 			}
+	 		}
+	 	}
+
+	 	function updateUISuccess(responseText) {
+	 		var response = JSON.parse(responseText);
+	 		var conditions = response.weather[0].main;
+	 		var degC = Math.floor(response.main.temp - 273.15);
+	 		console.log(degC);
+	 		$("#input-therm").text(degC + String.fromCharCode(176)+"C");
+	 	}
+
+	})();
+
+updateTime();
+function updateTime() {
+	time = document.getElementById('input-lock');
+	today = new Date
+	$('#input-lock').text(today.getHours() + ":" + today.getMinutes());
+};
+window.setInterval(updateTime, 60000);
+/*
+
+function refresh() {
+    	
+           $.get('/arduino/inputs/', function(json_response){
+           		//alert(json_response);
+                console.log(json_response);
+
+                  document.getElementById("input-therm").innerHTML = json_response["temperature"] + "&deg;C";
+       //           document.getElementById("temp-slider").value = json_response["temperature"];
+                  
+                  var alarmState = json_response["alarmStatus"];
+              if(document.getElementById("light-switch").checked) {    
+                  document.getElementById("input-bright").innerHTML = Math.round((json_response["roomBrightness"]*100)/1023) + "%";
+              } else {
+              	  document.getElementById("input-bright").innerHTML = document.getElementById("light-slider").value;
+              }
+                  var heartRate = json_response["heartRate"];
+                  var max = document.getElementById("heart-max").value;
+                  var min = document.getElementById("heart-min").value;
+                  document.getElementById("input-heart").innerHTML = heartRate + "BPM";
+                  if (heartRate < min) {
+
+                  	alert("The occupant's heartrate is lower than " + min + ".\n Please check that they are okay.");
+                  }
+                  if (heartRate > max) {
+ 					alert("The occupant's heartrate is higher than " + max + ".\n Please check that they are okay.");
+                  } 
+                  
+
+                  var webAlert = json_response["alertStatus"];
+                  
+                  document.getElementById("input-occupant").innerHTML = json_response["numOccupants"];
+
+                  if (alarmState == 0) {
+                  		document.getElementById("input-lock").innerHTML = "Deactivated";
+                  } else if (alarmState == 1) {
+                  		document.getElementById("input-lock").innerHTML = "Active"; 
+                  } else if (alarmState == 2) {
+                  		document.getElementById("input-lock").innerHTML = "Silent Mode";
+                  }              
+                   
+                   if (webAlert > 0 ) {
+                   	//setTimeout(alert,10000);
+             			alert("Your UniHome alarm has sounded - there might be an intruder in your home!\n\nContact authorities on 000 or check with your neighbours if you are unable to respond.");
+             		}                
+              }
+
+            );   
+                
+        } 
+      window.setInterval(refresh, 4000);
+/*
+      function alert() {
+      	alert("Your UniHome alarm has sounded - there might be an intruder in your home!\n\nContact authorities on 000 or check with your neighbours if you are unable to respond.");
+
+      }
+*/
+</script>
+
+
+
+
+
+
